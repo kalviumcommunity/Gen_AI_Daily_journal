@@ -20,6 +20,7 @@ mongoose.connect(process.env.MONGO_URI, {
 
 // Routes
 app.use("/api/chat", chatRoutes);
+app.use("/api", zeroShotRoutes);
 
 // Server start
 const PORT = process.env.PORT || 5000;

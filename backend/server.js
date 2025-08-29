@@ -3,6 +3,8 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 import cors from "cors";
 import chatRoutes from "./routes/chatRoutes.js";
+import oneShotRoutes from "./routes/oneShotRoutes.js";
+import zeroShotRoutes from "./routes/zeroShotRoutes.js";
 
 dotenv.config();
 const app = express();
@@ -21,6 +23,7 @@ mongoose.connect(process.env.MONGO_URI, {
 // Routes
 app.use("/api/chat", chatRoutes);
 app.use("/api", zeroShotRoutes);
+app.use("/api", oneShotRoutes);
 
 // Server start
 const PORT = process.env.PORT || 5000;

@@ -5,6 +5,7 @@ import cors from "cors";
 import chatRoutes from "./routes/chatRoutes.js";
 import oneShotRoutes from "./routes/oneShotRoutes.js";
 import zeroShotRoutes from "./routes/zeroShotRoutes.js";
+import multiShotRoutes from "./routes/multiShotRoutes.js";
 
 dotenv.config();
 const app = express();
@@ -24,6 +25,7 @@ mongoose.connect(process.env.MONGO_URI, {
 app.use("/api/chat", chatRoutes);
 app.use("/api", zeroShotRoutes);
 app.use("/api", oneShotRoutes);
+app.use("/api", multiShotRoutes);
 
 // Server start
 const PORT = process.env.PORT || 5000;
